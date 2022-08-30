@@ -42,7 +42,7 @@ function Main() {
     function createButtonDelete(element) {
         element.innerHTML += ' ';
         let button = document.createElement('button');
-        button.innerText = 'x';
+        button.innerHTML = 'x';
         button.setAttribute('class', 'delete');
         element.appendChild(button);
         element.appendChild(createElementHr());
@@ -59,7 +59,7 @@ function Main() {
         let tasksList = [];
         const tasksLis = tasks.querySelectorAll('li');
         for (let task of tasksLis) {
-            let valueElement = task.innerText.replace('x', '').trim();
+            let valueElement = task.innerText.slice(0, -2);
             tasksList.push(valueElement);
         }
         const taskJSON = JSON.stringify(tasksList);
